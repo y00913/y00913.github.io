@@ -4,30 +4,15 @@ title: About
 permalink: /about/
 ---
 
-## Theme Monos
-> Simple and lightweight theme for Jekyll
+## 안녕하세요
+> 안유태입니다.
 
 ### Features
-- Responsive.
-- Syntax Highlight
-- Most optimized theme for tech blog.
-- Lightweight with minimum stylesheet.
-- Easy to customize.
-- Offers category menu.
+- 수원대학교 컴퓨터학과 재학
+- 1사단 병장 만기 전역
+- 스팀 게임 다수 보유
 
-### _config.yml
-> Code block will look like this.
-```yml
-highlighter-theme: monokai //you can change your syntax color scheme.
-date_format: "%Y-%M-%D" //and date format.
-```
-
-### Screenshots
-#### Page
-![alt text](/public/img/screenshot-1.png)
-#### Articles
-![alt text](/public/img/screenshot-2.png)
-#### Page - Mobile
-![alt text](/public/img/screenshot-m1.png)
-#### Page - Articles
-![alt text](/public/img/screenshot-m2.png)
+### Introduce
+markdown 연습 겸 블로그를 제작했습니다.
+주로 c++을 다루며 프로그래머스 문제를 다루거나 게임 리뷰를 할 예정입니다.
+컴퓨터... 어렵네요..
