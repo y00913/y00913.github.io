@@ -16,3 +16,7 @@ permalink: /about/
 markdown 연습 겸 블로그를 제작했습니다.  
 주로 c++을 다루며 프로그래머스 문제를 다루거나 게임 리뷰를 할 예정입니다.  
 컴퓨터... 어렵네요..  
+  
+  
+  
+![alt text](/public/img/123.jpg)
