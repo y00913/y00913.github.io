@@ -36,6 +36,8 @@ plugins:
   - jekyll-feed
 category_dir: category/
 tag_dir: tag/
+disqus_url: https://disqus.com/home/forums/y00913-github-io/
+disqus_id: y00913-github-io.disqus.com
 
 # Exclude from processing.
 # The following items will not be processed, by default.
