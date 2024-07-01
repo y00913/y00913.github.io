@@ -1,7 +1,7 @@
 ---
 comments: true
 layout: post
-title: 스프링부트 rabbitmq java.net.SocketException 오류
+title: 스프링부트 rabbitmq 오류 수정
 date: 2024-06-28 00:42:00 +0900
 category: error
 ---
