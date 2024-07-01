@@ -3,7 +3,7 @@ comments: true
 layout: post
 title: 도커 Job for docker.service failed because the control process exited with error code 해결
 date: 2023-07-09 00:42:00 +0900
-category: etc
+category: error
 ---
 
 도커 설치 후 실행을 했더니 이러한 오류가 나왔다.

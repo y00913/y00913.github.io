@@ -3,7 +3,7 @@ comments: true
 layout: post
 title: cannot deserialize from object value (no delegate- or property-based creator) 해결
 date: 2024-06-20 00:42:00 +0900
-category: etc
+category: error
 ---
 
 cannot deserialize from object value (no delegate- or property-based creator) 라는 오류가 나타났다.

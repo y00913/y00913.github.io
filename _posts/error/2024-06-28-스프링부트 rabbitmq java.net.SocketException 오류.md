@@ -3,7 +3,7 @@ comments: true
 layout: post
 title: 스프링부트 rabbitmq java.net.SocketException 오류
 date: 2024-06-28 00:42:00 +0900
-category: etc
+category: error
 ---
 
 외부 서버 도커에 rabbitMQ를 올린 후 스프링부트와 연결을 시도를 했는데 오류가 계속해서 발생했었다.... ```config``` 설정은 아래와 같이 해주었었다.
