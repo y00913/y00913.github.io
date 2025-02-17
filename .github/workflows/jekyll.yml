@@ -29,6 +29,9 @@ jobs:
         source ~/.bashrc
 
     - name: Install dependencies
+      env:
+        GEM_HOME: "$HOME/.gems"
+        PATH: "$HOME/.gems/bin:$PATH"
       run: |
         gem install bundler
         bundle install
