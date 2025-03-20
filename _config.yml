@@ -21,7 +21,7 @@
 title: ALOG
 email: ayt0913@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Ahn's BLOG | 안유태
+  Ahn's BLOG
 baseurl: /y00913.github.io/ # the subpath of your site, e.g. /blog
 url: "https://y00913.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: y00913
