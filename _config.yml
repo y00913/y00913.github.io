@@ -36,7 +36,7 @@ plugins:
   - jekyll-feed
 category_dir: category/
 tag_dir: tag/
-disqus_shortname : myblog(y00913-github-io)
+# disqus_shortname : myblog(y00913-github-io)
 google_analytics: G-X5JXGZWMR7
 
 # Exclude from processing.
