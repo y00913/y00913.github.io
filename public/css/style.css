@@ -298,6 +298,27 @@ footer {
 	color: #ccc;
 }
 
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+}
+
+.prev-post, .next-post {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #0073e6;
+    transition: color 0.3s;
+}
+
+.prev-post:hover, .next-post:hover {
+    color: #005bb5;
+}
+
+
 
 @media (max-width: 576px) {
 	article {
