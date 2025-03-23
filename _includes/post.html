@@ -14,10 +14,10 @@
 	</div>
 	<footer class="post-navigation">
 		{% if page.previous %}
-			<a class="prev-post" href="{{ page.previous.url }}">이전</a>
+			<a class="prev-post" href="{{ page.previous.url }}">&larr; {{ page.previous.title }}<</a>
 		{% endif %}
 		{% if page.next %}
-			<a class="next-post" href="{{ page.next.url }}">다음</a>
+			<a class="next-post" href="{{ page.next.url }}">{{ page.next.title }} &rarr;</a>
 		{% endif %}
 	</footer>
 	<style>
