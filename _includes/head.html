@@ -3,14 +3,14 @@
      crossorigin="anonymous"></script>
 	<meta name="naver-site-verification" content="ebf4e8e2315604e45be4bf997eda0abe8f3012ea" />
 
-	<meta name="description" content="{{ page.excerpt | default: '단어 정보 블로그' }}">
+	<meta name="description" content="{{ page.excerpt | strip_html | truncatewords: 20 | default: '단어 정보 블로그' }}">
 	
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<meta property="og:title" content="{{ page.title | default: 'ALOG' }}">
-	<meta property="og:description" content="{{ page.excerpt | default: '단어 정보 블로그' }}">
+	<meta property="og:description" content="{{ page.excerpt | strip_html | truncatewords: 20 | default: '단어 정보 블로그' }}">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="{{ page.url | absolute_url }}">
 	{%- feed_meta -%}
