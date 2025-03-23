@@ -13,35 +13,46 @@
 		{{ content }}
 	</div>
 	<footer class="post-navigation">
-		{% if page.previous %}
-			<a class="prev-post" href="{{ page.previous.url }}">&larr; {{ page.previous.title }}<</a>
-		{% endif %}
-		{% if page.next %}
-			<a class="next-post" href="{{ page.next.url }}">{{ page.next.title }} &rarr;</a>
-		{% endif %}
+	    {% if page.previous %}
+	        <a class="prev-post" href="{{ page.previous.url }}">&larr; <span class="post-title">{{ page.previous.title }}</span></a>
+	    {% endif %}
+	    {% if page.next %}
+	        <a class="next-post" href="{{ page.next.url }}"><span class="post-title">{{ page.next.title }}</span> &rarr;</a>
+	    {% endif %}
 	</footer>
+	
 	<style>
-		.post-navigation {
-		    display: flex;
-		    justify-content: space-between;
-		    margin-top: 20px;
-		    padding: 10px 0;
-		    border-top: 1px solid #ddd;
-		}
-		
-		.prev-post, .next-post {
-		    font-size: 1.1rem;
-		    font-weight: bold;
-		    text-decoration: none;
-		    color: #0073e6;
-		    transition: color 0.3s;
-		}
-		
-		.prev-post:hover, .next-post:hover {
-		    color: #005bb5;
-		}
-
+	    .post-navigation {
+	        display: flex;
+	        justify-content: space-between;
+	        margin-top: 20px;
+	        padding: 10px 0;
+	        border-top: 1px solid #ddd;
+	    }
+	
+	    .prev-post, .next-post {
+	        font-size: 1.1rem;
+	        font-weight: bold;
+	        text-decoration: none;
+	        color: #0073e6;
+	        transition: color 0.3s;
+	        max-width: 45%;
+	    }
+	
+	    .prev-post:hover, .next-post:hover {
+	        color: #005bb5;
+	    }
+	
+	    .post-title {
+	        display: inline-block;
+	        max-width: 100px;
+	        white-space: nowrap;
+	        overflow: hidden;
+	        text-overflow: ellipsis;
+	        vertical-align: middle;
+	    }
 	</style>
+
 <!-- 	{% if page.comments %}
 	<div id="disqus_thread"></div>
 <script>
