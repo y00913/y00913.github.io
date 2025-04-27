@@ -1,7 +1,7 @@
 ---
 comments: true
 layout: post
-title: Shakshuka: 이집트의 맛을 담은 특별한 브런치 요리
+title: "Shakshuka: 이집트의 맛을 담은 특별한 브런치 요리"
 date: 2025-04-27 05:01:21 +0900
 category: 2025-4
 ---
