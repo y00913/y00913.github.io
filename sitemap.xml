@@ -7,7 +7,11 @@ layout: null
   {% for post in site.posts %}
     <url>
       <loc>{{ site.url }}{{ post.url }}</loc>
-      <lastmod>{{ now }}</lastmod>
+      {% if post.last_modified_at == null %}
+        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+      {% else %}
+        <lastmod>{{ post.last_modified_at | date_to_xmlschema }}</lastmod>
+      {% endif %}>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
     </url>
