@@ -60,7 +60,11 @@
   		},
   		"publisher": {
     			"@type": "Organization",
-    			"name": "{{ site.title | escape }}"
+    			"name": "{{ site.title | escape }}",
+			"logo": {
+      					"@type": "ImageObject",
+      					"url": "https://y00913.github.io/favicon.ico"
+    			}
   		},
   		"datePublished": "{{ page.date | date_to_xmlschema }}",
   		"dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}"
