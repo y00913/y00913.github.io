@@ -43,6 +43,30 @@
 	{%- if jekyll.environment == 'production' and site.google_analytics -%}
 		{%- include google-analytics.html -%}
 	{%- endif -%}
+
+	<script type="application/ld+json">
+	{
+  		"@context": "https://schema.org",
+  		"@type": "BlogPosting",
+  		"mainEntityOfPage": {
+    			"@type": "WebPage",
+    			"@id": "{{ page.url | absolute_url }}"
+  		},
+  		"headline": "{{ page.title | escape }}",
+  		"description": "{{ page.excerpt | strip_html | strip_newlines | escape | truncate: 110 }}",
+  		"author": {
+    			"@type": "Person",
+    			"name": "{{ site.author | default: site.title | escape }}"
+  		},
+  		"publisher": {
+    			"@type": "Organization",
+    			"name": "{{ site.title | escape }}"
+  		},
+  		"datePublished": "{{ page.date | date_to_xmlschema }}",
+  		"dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}"
+	}
+	</script>
+
 </head>
 
 
