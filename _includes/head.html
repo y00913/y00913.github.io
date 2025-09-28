@@ -13,7 +13,7 @@
 	<title>
 	    {%- if page.title -%}
 			{%- if page.date -%}
-	            {{ page.date | date: "%Y/%m/%d" }} | {{ page.title | escape }} | {{ site.title | escape }}
+	            {{ page.title | escape }} | {{ site.title | escape }} | {{ page.date | date: "%Y/%m/%d" }}
 	        {%- else -%}
 	            {{ page.title | escape }} | {{ site.title | escape }}
 	        {%- endif -%}
@@ -73,6 +73,7 @@
 
 
 </head>
+
 
 
 
