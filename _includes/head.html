@@ -1,6 +1,8 @@
 <head>
+	{% unless page.is_sitemap %}
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8794269458658143"
      crossorigin="anonymous"></script>
+	{% endunless %}
 	<meta name="naver-site-verification" content="ebf4e8e2315604e45be4bf997eda0abe8f3012ea" />
 	<meta name="google-site-verification" content="MnsV74jni3LkNBCa2BYCERRt5YZyjnAqMlstRH_JKxM" />
 
@@ -13,7 +15,7 @@
 	<title>
 	    {%- if page.title -%}
 			{%- if page.date -%}
-	            {{ page.date | date: "%Y/%m/%d" }} | {{ page.title | escape }} | {{ site.title | escape }}
+	            {{ page.title | escape }} | {{ site.title | escape }} | {{ page.date | date: "%Y/%m/%d" }}
 	        {%- else -%}
 	            {{ page.title | escape }} | {{ site.title | escape }}
 	        {%- endif -%}
@@ -72,5 +74,11 @@
 	</script>
 
 </head>
+
+
+
+
+
+
 
 
