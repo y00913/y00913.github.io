@@ -9,6 +9,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'HannaAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -56,7 +63,7 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: 'BMJUA';
+	font-family: 'HannaAir';
 	color: #2c3e50;
 }
 
@@ -120,7 +127,7 @@ code {
 
 .sidebar-brand > a {
 	font-size: 300%;
-	font-family: "BMJUA";
+	font-family: "HannaAir";
 	color: #fff;
 }
 
@@ -139,7 +146,7 @@ code {
 
 .nav-title {
 	font-size: 100%;
-	font-family: "BMJUA";
+	font-family: "HannaAir";
 	text-transform: uppercase;
 	border-bottom: 1px solid gray;
 	margin-bottom: 5px;
@@ -147,7 +154,7 @@ code {
 
 a.nav-item {
 	font-size: 120%;
-	font-family: "BMJUA";
+	font-family: "HannaAir";
 	text-transform: capitalize;
 	color: #aaa;
 }
@@ -239,7 +246,7 @@ article h3,
 article h4,
 article h5,
 article h6 {
-	font-family: "BMJUA";
+	font-family: "HannaAir";
 	color: #333;
   	margin-bottom: 0;
 }
