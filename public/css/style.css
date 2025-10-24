@@ -180,6 +180,8 @@ a.nav-item:hover { color: #777; }
 	margin-left: 10px;
 	font-size: 110%;
 	color: #333;
+	font-family: "HannaAir";
+	font-weight: bold;
 }
 
 #contact-list li .fa,
