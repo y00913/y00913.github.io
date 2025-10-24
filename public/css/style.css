@@ -332,7 +332,6 @@ footer {
 	
 .prev-post, .next-post {
         font-size: 1.1rem;
-        font-weight: bold;
         text-decoration: none;
         color: #0073e6;
         transition: color 0.3s;
