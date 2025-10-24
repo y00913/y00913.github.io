@@ -10,8 +10,8 @@
 }
 
 @font-face {
-    font-family: 'HannaAir';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff') format('woff');
+    font-family: 'HannaPro';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
     font-weight: normal;
     font-display: swap;
 }
@@ -63,7 +63,7 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: 'HannaAir';
+	font-family: 'HannaPro';
 	color: #2c3e50;
 }
 
@@ -127,7 +127,7 @@ code {
 
 .sidebar-brand > a {
 	font-size: 300%;
-	font-family: "HannaAir";
+	font-family: "HannaPro";
 	color: #fff;
 }
 
@@ -146,7 +146,7 @@ code {
 
 .nav-title {
 	font-size: 100%;
-	font-family: "HannaAir";
+	font-family: "HannaPro";
 	text-transform: uppercase;
 	border-bottom: 1px solid gray;
 	margin-bottom: 5px;
@@ -154,7 +154,7 @@ code {
 
 a.nav-item {
 	font-size: 120%;
-	font-family: "HannaAir";
+	font-family: "HannaPro";
 	text-transform: capitalize;
 	color: #aaa;
 }
@@ -246,7 +246,7 @@ article h3,
 article h4,
 article h5,
 article h6 {
-	font-family: "HannaAir";
+	font-family: "HannaPro";
 	color: #333;
   	margin-bottom: 0;
 }
@@ -351,3 +351,4 @@ footer {
 		display: none;
 	}
 }
+
