@@ -135,7 +135,7 @@ code {
 
 .sidebar-brand > a {
 	font-size: 300%;
-	font-family: "HannaPro";
+	font-family: "HannaAir";
 	color: #fff;
 }
 
@@ -154,7 +154,7 @@ code {
 
 .nav-title {
 	font-size: 100%;
-	font-family: "HannaPro";
+	font-family: "BMJUA";
 	text-transform: uppercase;
 	border-bottom: 1px solid gray;
 	margin-bottom: 5px;
@@ -162,7 +162,7 @@ code {
 
 a.nav-item {
 	font-size: 120%;
-	font-family: "HannaPro";
+	font-family: "HannaAir";
 	text-transform: capitalize;
 	color: #aaa;
 }
@@ -287,7 +287,7 @@ header.home {
 .post-title {
 	font-size: 1.5em;
 	color: #111;
-	font-weight: bold;
+	/*font-weight: bold;*/
 }
 
 .post-date {
@@ -323,7 +323,7 @@ footer {
 
 .post-navigation {
         display: flex;
-	font-family: "BMJUA"
+	font-family: "BMJUA";
         justify-content: space-between;
         margin-top: 20px;
         padding: 10px 0;
