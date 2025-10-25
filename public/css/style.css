@@ -466,6 +466,7 @@ table tbody tr:hover {
 }
 
 .pagination-number:hover {
+  text-decoration: none;
   background-color: #f3f4f6;
 }
 
