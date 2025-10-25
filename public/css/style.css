@@ -429,6 +429,10 @@ table tbody tr:hover {
   font-weight: 500;
 }
 
+.pagination-btn:hover {
+  text-decoration: none;
+}
+
 .pagination-btn:hover:not(.disabled) {
   background-color: #f3f4f6;
   color: #1a1a1a;
