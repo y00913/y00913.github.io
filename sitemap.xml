@@ -10,7 +10,7 @@ is_sitemap: true
 {% for post in site.posts %}
   <url>
     <loc>{{ site.url }}{{ post.url }}</loc>
-    <lastmod>{% if post.last_modified_at %}{{ post.last_modified_at | date_to_xmlschema }}{% else %}{{ post.date | date_to_xmlschema }}{% endif %}</lastmod>
+    <lastmod>{{ now }}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
