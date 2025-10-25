@@ -18,43 +18,81 @@
       {%- endfor -%}
     </ul>
 
-    <!-- 페이지네이션 UI (숫자 버전) -->
-    {%- if include.has_pagination and include.total_pages > 1 -%}
-    <div class="pagination">
-      <!-- 이전 버튼 -->
-      {%- if include.previous_page -%}
-        <a href="{{ include.previous_page_path | relative_url }}" class="pagination-btn">
-          ← 이전
-        </a>
-      {%- else -%}
-        <span class="pagination-btn disabled">← 이전</span>
-      {%- endif -%}
+<!-- 페이지네이션 UI (숫자 버전 - 축약형) -->
+{%- if include.has_pagination and include.total_pages > 1 -%}
+<div class="pagination">
+  <!-- 이전 버튼 -->
+  {%- if include.previous_page -%}
+    <a href="{{ include.previous_page_path | relative_url }}" class="pagination-btn">
+      ← 이전
+    </a>
+  {%- else -%}
+    <span class="pagination-btn disabled">← 이전</span>
+  {%- endif -%}
 
-      <!-- 페이지 번호들 -->
-      <div class="pagination-numbers">
-        {%- for page in (1..include.total_pages) -%}
-          {%- if page == include.current_page -%}
-            <span class="pagination-number current">{{ page }}</span>
-          {%- elsif page == 1 -%}
-            <a href="{{ '/' | relative_url }}" class="pagination-number">{{ page }}</a>
-          {%- else -%}
-            <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="pagination-number">{{ page }}</a>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-
-      <!-- 다음 버튼 -->
-      {%- if include.next_page -%}
-        <a href="{{ include.next_page_path | relative_url }}" class="pagination-btn">
-          다음 →
-        </a>
-      {%- else -%}
-        <span class="pagination-btn disabled">다음 →</span>
-      {%- endif -%}
-    </div>
+  <!-- 페이지 번호들 -->
+  <div class="pagination-numbers">
+    {%- assign current = include.current_page -%}
+    {%- assign total = include.total_pages -%}
+    
+    <!-- 첫 페이지 -->
+    {%- if current == 1 -%}
+      <span class="pagination-number current">1</span>
+    {%- else -%}
+      <a href="{{ '/' | relative_url }}" class="pagination-number">1</a>
     {%- endif -%}
     
-    {$- else -%}
+    <!-- ... (생략 표시) -->
+    {%- if current > 3 -%}
+      <span class="pagination-ellipsis">...</span>
+    {%- endif -%}
+    
+    <!-- 현재 페이지 주변 -->
+    {%- for page in (2..total) -%}
+      {%- assign diff = page | minus: current -%}
+      {%- if diff < 0 -%}
+        {%- assign diff = 0 | minus: diff -%}
+      {%- endif -%}
+      
+      {%- if page == total -%}
+        {%- continue -%}
+      {%- elsif diff <= 1 -%}
+        {%- if page == current -%}
+          <span class="pagination-number current">{{ page }}</span>
+        {%- else -%}
+          <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="pagination-number">{{ page }}</a>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+    
+    <!-- ... (생략 표시) -->
+    {%- if current < total | minus: 2 -%}
+      <span class="pagination-ellipsis">...</span>
+    {%- endif -%}
+    
+    <!-- 마지막 페이지 -->
+    {%- if total > 1 -%}
+      {%- if current == total -%}
+        <span class="pagination-number current">{{ total }}</span>
+      {%- else -%}
+        <a href="{{ site.paginate_path | relative_url | replace: ':num', total }}" class="pagination-number">{{ total }}</a>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+
+  <!-- 다음 버튼 -->
+  {%- if include.next_page -%}
+    <a href="{{ include.next_page_path | relative_url }}" class="pagination-btn">
+      다음 →
+    </a>
+  {%- else -%}
+    <span class="pagination-btn disabled">다음 →</span>
+  {%- endif -%}
+</div>
+{%- endif -%}
+
+    
+    {%- else -%}
     <p>게시글이 없습니다.</p>
     {%- endif -%}
   </div>

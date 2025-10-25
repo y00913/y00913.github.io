@@ -472,6 +472,13 @@ table tbody tr:hover {
   font-weight: 600;
 }
 
+.pagination-ellipsis {
+  padding: 0 8px;
+  color: #9ca3af;
+  user-select: none;
+}
+
+
 /* 모바일 반응형 */
 @media screen and (max-width: 768px) {
   .pagination {
