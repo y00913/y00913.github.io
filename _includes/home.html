@@ -1,68 +1,51 @@
-<!--
 <article class="post">
   <header class="post-header home">
     <div class="post-title">Articles</div>
   </header>
 
   <div class="post-content">
-      {%- if site.posts.size > 0 -%}
+    {%- if paginator.posts.size > 0 -%}
     <ul class="post-list">
-      {%- for post in site.posts -%}
+      {%- for post in paginator.posts -%}
       <li class="post-list-item">
         {%- assign date_format = "%Y/%m/%d" -%}
-        <span class="post-date">{{ post.date | date: date_format }}</span>
-      	<a class="post-link" href="{{ post.url | relative_url }}">
-    	    {{ post.title | escape }}
-		</a>
-        {%- if site.show_excerpts -%}{{ post.excerpt }}{%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
-  {%- endif -%}
-  </div>
-</article>
-
--->
-
-
-<article class="post">
-  <header class="post-header home">
-    <div class="post-title">Articles</div>
-  </header>
-
-  <div class="post-content">
-    {% if paginator.posts.size > 0 %}
-    <ul class="post-list">
-      {% for post in paginator.posts %}
-      <li class="post-list-item">
-        {% assign date_format = "%Y/%m/%d" %}
         <span class="post-date">{{ post.date | date: date_format }}</span>
         <a class="post-link" href="{{ post.url | relative_url }}">
           {{ post.title | escape }}
         </a>
-        {% if site.show_excerpts %}{{ post.excerpt }}{% endif %}
+        {%- if site.show_excerpts -%}{{ post.excerpt }}{%- endif -%}
       </li>
-      {% endfor %}
+      {%- endfor -%}
     </ul>
 
+    <!-- 페이지네이션 UI (숫자 버전) -->
+    {%- if paginator.total_pages > 1 -%}
     <div class="pagination">
-      {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}">이전</a>
-      {% endif %}
+      {%- if paginator.previous_page -%}
+        <a href="{{ paginator.previous_page_path | relative_url }}">← 이전</a>
+      {%- else -%}
+        <span class="disabled">← 이전</span>
+      {%- endif -%}
 
-      {% for page in (1..paginator.total_pages) %}
-        {% if page == paginator.page %}
-          <span>{{ page }}</span>
-        {% else %}
-          <a href="{{ paginator.paginate_path | replace: ':num', page }}">{{ page }}</a>
-        {% endif %}
-      {% endfor %}
+      {%- for page in (1..paginator.total_pages) -%}
+        {%- if page == paginator.page -%}
+          <span class="current">{{ page }}</span>
+        {%- elsif page == 1 -%}
+          <a href="{{ '/' | relative_url }}">{{ page }}</a>
+        {%- else -%}
+          <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+        {%- endif -%}
+      {%- endfor -%}
 
-      {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}">다음</a>
-      {% endif %}
+      {%- if paginator.next_page -%}
+        <a href="{{ paginator.next_page_path | relative_url }}">다음 →</a>
+      {%- else -%}
+        <span class="disabled">다음 →</span>
+      {%- endif -%}
     </div>
-    {% endif %}
+    {%- endif -%}
+
+    
+    {%- endif -%}
   </div>
 </article>
-
