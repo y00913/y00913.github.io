@@ -18,17 +18,17 @@
             {%- endfor -%}
         </ul>
 
-        <!-- 페이지네이션 UI (숫자 버전 - 축약형) -->
-        <div class="pagination" id="pagination" style="display: none;">
+        <!-- 페이지네이션 UI (숫자 버전 - 축약형, a 태그 사용) -->
+        <nav class="pagination" id="pagination" style="display: none;" aria-label="Page navigation">
             <!-- 이전 버튼 -->
-            <button class="pagination-btn" id="prev-btn" disabled>← 이전</button>
+            <a href="#" class="pagination-btn pagination-prev disabled" id="prev-btn" aria-disabled="true" tabindex="-1">← 이전</a>
 
             <!-- 페이지 번호들 -->
             <div class="pagination-numbers" id="page-numbers"></div>
 
             <!-- 다음 버튼 -->
-            <button class="pagination-btn" id="next-btn">다음 →</button>
-        </div>
+            <a href="#" class="pagination-btn pagination-next" id="next-btn">다음 →</a>
+        </nav>
 
         {%- endif -%}
     </div>
@@ -36,8 +36,8 @@
 
 <script src="/public/js/jquery-3.4.1.slim.min.js"></script>
 <script>
-    // 페이지네이션 변수
-    const postsPerPage = 10;
+    // 리스트 최대 개수 변경
+    const postsPerPage = 20;
     let currentPage = 1;
     let filteredPosts = [];
 
@@ -48,17 +48,37 @@
         const $nextBtn = $('#next-btn');
         const $pageNumbers = $('#page-numbers');
 
-        // 페이지가 1개 이하면 페이지네이션 숨기기
         if (totalPages <= 1) {
             $pagination.hide();
             return;
         }
-
         $pagination.show();
 
-        // 이전/다음 버튼 상태 업데이트
-        $prevBtn.prop('disabled', currentPage === 1);
-        $nextBtn.prop('disabled', currentPage === totalPages);
+        // 이전 버튼 disabled 설정 및 tabindex
+        if (currentPage === 1) {
+            $prevBtn.addClass('disabled').attr('aria-disabled', 'true').attr('tabindex', '-1').attr('href', '#');
+        } else {
+            $prevBtn.removeClass('disabled').attr('aria-disabled', 'false').removeAttr('tabindex');
+            $prevBtn.attr('href', '#').off('click').on('click', (e) => {
+                e.preventDefault();
+                currentPage--;
+                showCurrentPage();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // 다음 버튼 disabled 설정 및 tabindex
+        if (currentPage === totalPages) {
+            $nextBtn.addClass('disabled').attr('aria-disabled', 'true').attr('tabindex', '-1').attr('href', '#');
+        } else {
+            $nextBtn.removeClass('disabled').attr('aria-disabled', 'false').removeAttr('tabindex');
+            $nextBtn.attr('href', '#').off('click').on('click', (e) => {
+                e.preventDefault();
+                currentPage++;
+                showCurrentPage();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
 
         // 페이지 번호 생성 (축약형)
         $pageNumbers.empty();
@@ -75,10 +95,9 @@
             $pageNumbers.append('<span class="pagination-ellipsis">...</span>');
         }
 
-        // 현재 페이지 주변 (현재 -1, 현재, 현재 +1)
+        // 현재 페이지 주변 (현재-1, 현재, 현재+1)
         for (let i = 2; i < totalPages; i++) {
             const diff = Math.abs(i - currentPage);
-            
             if (diff <= 1) {
                 if (i === currentPage) {
                     $pageNumbers.append(`<span class="pagination-number current">${i}</span>`);
@@ -115,69 +134,32 @@
     }
 
     function showCurrentPage() {
-        // 모든 필터링된 게시글 숨기기
         filteredPosts.forEach(post => $(post).hide());
-
-        // 현재 페이지의 게시글만 표시
         const start = (currentPage - 1) * postsPerPage;
         const end = start + postsPerPage;
         const postsToShow = filteredPosts.slice(start, end);
         postsToShow.forEach(post => $(post).show());
-
-        // 페이지네이션 UI 업데이트
         updatePagination();
     }
 
     function filterAndPaginate() {
-        currentPage = 1; // 카테고리 변경 시 첫 페이지로 리셋
-
+        currentPage = 1;
         if (window.location.hash) {
             let hash = window.location.hash.substring(1);
-            $('#category-name').text(hash.substring(0, 1).toUpperCase() + hash.substring(1));
-            
-            // 카테고리에 맞는 게시글 필터링
+            $('#category-name').text(hash.charAt(0).toUpperCase() + hash.slice(1));
+
             filteredPosts = $('.post-list-item').filter(function() {
                 return $(this).hasClass('post-category-' + hash);
             }).toArray();
-
-            // 모든 게시글 숨기기
             $('.post-list-item').hide();
         } else {
-            // hash가 없으면 전체 게시글
             $('#category-name').text('All');
             filteredPosts = $('.post-list-item').toArray();
         }
-
-        // 현재 페이지 표시
         showCurrentPage();
     }
 
-    // 이전 버튼 클릭
-    $('#prev-btn').on('click', function() {
-        if (currentPage > 1) {
-            currentPage--;
-            showCurrentPage();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    });
-
-    // 다음 버튼 클릭
-    $('#next-btn').on('click', function() {
-        const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
-        if (currentPage < totalPages) {
-            currentPage++;
-            showCurrentPage();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    });
-
-    // hash 변경 시
-    $(window).on('hashchange', function() {
-        filterAndPaginate();
-    });
-
-    // 페이지 로드 시
-    $(document).ready(function() {
-        filterAndPaginate();
-    });
+    // 페이지 로드 및 해시 변경 이벤트
+    $(document).ready(filterAndPaginate);
+    $(window).on('hashchange', filterAndPaginate);
 </script>
