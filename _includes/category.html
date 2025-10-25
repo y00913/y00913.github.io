@@ -56,7 +56,7 @@
 
         // 이전 버튼 disabled 설정 및 tabindex
         if (currentPage === 1) {
-            $prevBtn.addClass('disabled').attr('aria-disabled', 'true').attr('tabindex', '-1').attr('href', '#').off('click');
+            $prevBtn.addClass('disabled').attr('aria-disabled', 'true').attr('tabindex', '-1').off('click').removeAttr('href');
         } else {
             $prevBtn.removeClass('disabled').attr('aria-disabled', 'false').removeAttr('tabindex');
             $prevBtn.attr('href', '#').off('click').on('click', (e) => {
@@ -69,7 +69,7 @@
 
         // 다음 버튼 disabled 설정 및 tabindex
         if (currentPage === totalPages) {
-            $nextBtn.addClass('disabled').attr('aria-disabled', 'true').attr('tabindex', '-1').attr('href', '#').off('click');
+            $nextBtn.addClass('disabled').attr('aria-disabled', 'true').attr('tabindex', '-1').off('click').removeAttr('href');
         } else {
             $nextBtn.removeClass('disabled').attr('aria-disabled', 'false').removeAttr('tabindex');
             $nextBtn.attr('href', '#').off('click').on('click', (e) => {
