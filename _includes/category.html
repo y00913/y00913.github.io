@@ -1,48 +1,183 @@
 <article class="post">
-	<header class="post-header home">
-		<div class="post-title">Category - <span id='category-name'></span></div>
-	</header>
+    <header class="post-header home">
+        <div class="post-title">Category - <span id='category-name'></span></div>
+    </header>
 
-	<div class="post-content">
-		{%- if site.posts.size > 0 -%}
-		<ul class="post-list">
-			{%- for post in site.posts -%}
-			<li class="post-list-item post-category-{{post.categories}}">
-				<!-- {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%} -->
-				{%- assign date_format = "%Y/%m/%d" -%}
-				<span class="post-date">{{ post.date | date: date_format }}</span>
-				<a class="post-link" href="{{ post.url | relative_url }}">
-					{{ post.title | escape }}
-				</a>
-				{%- if site.show_excerpts -%}{{ post.excerpt }}{%- endif -%}
-			</li>
-		  	{%- endfor -%}
-		</ul>
-	  	{%- endif -%}
-	</div>
+    <div class="post-content">
+        {%- if site.posts.size > 0 -%}
+        <ul class="post-list" id="post-list">
+            {%- for post in site.posts -%}
+            <li class="post-list-item post-category-{{post.categories}}" data-index="{{ forloop.index0 }}">
+                {%- assign date_format = "%Y/%m/%d" -%}
+                <span class="post-date">{{ post.date | date: date_format }}</span>
+                <a class="post-link" href="{{ post.url | relative_url }}">
+                    {{ post.title | escape }}
+                </a>
+                {%- if site.show_excerpts -%}{{ post.excerpt }}{%- endif -%}
+            </li>
+            {%- endfor -%}
+        </ul>
+
+        <!-- 페이지네이션 UI (숫자 버전 - 축약형) -->
+        <div class="pagination" id="pagination" style="display: none;">
+            <!-- 이전 버튼 -->
+            <button class="pagination-btn" id="prev-btn" disabled>← 이전</button>
+
+            <!-- 페이지 번호들 -->
+            <div class="pagination-numbers" id="page-numbers"></div>
+
+            <!-- 다음 버튼 -->
+            <button class="pagination-btn" id="next-btn">다음 →</button>
+        </div>
+
+        {%- endif -%}
+    </div>
 </article>
 
 <script src="/public/js/jquery-3.4.1.slim.min.js"></script>
 <script>
-	function removeCategory() {
-		if (window.location.hash) {
-			let hash = window.location.hash.substring(1);
-			$('#category-name').text(hash.substring(0, 1).toUpperCase() + hash.substring(1));
-			let category_class = '.post-category-' + hash;
-			let items = $('.post-list-item').each((i, e) => {
-				if (!$(e).hasClass('post-category-' + hash)) {
-					$(e).hide();
-				} else {
-					$(e).show();
-				}
-			});
-		}
-	}
-	$(window).on('hashchange', () => {
-		removeCategory();
-	});
-	$(document).ready(() => {
-		removeCategory();	
-	})
-	
+    // 페이지네이션 변수
+    const postsPerPage = 10;
+    let currentPage = 1;
+    let filteredPosts = [];
+
+    function updatePagination() {
+        const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+        const $pagination = $('#pagination');
+        const $prevBtn = $('#prev-btn');
+        const $nextBtn = $('#next-btn');
+        const $pageNumbers = $('#page-numbers');
+
+        // 페이지가 1개 이하면 페이지네이션 숨기기
+        if (totalPages <= 1) {
+            $pagination.hide();
+            return;
+        }
+
+        $pagination.show();
+
+        // 이전/다음 버튼 상태 업데이트
+        $prevBtn.prop('disabled', currentPage === 1);
+        $nextBtn.prop('disabled', currentPage === totalPages);
+
+        // 페이지 번호 생성 (축약형)
+        $pageNumbers.empty();
+
+        // 첫 페이지
+        if (currentPage === 1) {
+            $pageNumbers.append('<span class="pagination-number current">1</span>');
+        } else {
+            $pageNumbers.append('<a href="#" class="pagination-number" data-page="1">1</a>');
+        }
+
+        // ... (생략 표시) - 왼쪽
+        if (currentPage > 3) {
+            $pageNumbers.append('<span class="pagination-ellipsis">...</span>');
+        }
+
+        // 현재 페이지 주변 (현재 -1, 현재, 현재 +1)
+        for (let i = 2; i < totalPages; i++) {
+            const diff = Math.abs(i - currentPage);
+            
+            if (diff <= 1) {
+                if (i === currentPage) {
+                    $pageNumbers.append(`<span class="pagination-number current">${i}</span>`);
+                } else {
+                    $pageNumbers.append(`<a href="#" class="pagination-number" data-page="${i}">${i}</a>`);
+                }
+            }
+        }
+
+        // ... (생략 표시) - 오른쪽
+        if (currentPage < totalPages - 2) {
+            $pageNumbers.append('<span class="pagination-ellipsis">...</span>');
+        }
+
+        // 마지막 페이지
+        if (totalPages > 1) {
+            if (currentPage === totalPages) {
+                $pageNumbers.append(`<span class="pagination-number current">${totalPages}</span>`);
+            } else {
+                $pageNumbers.append(`<a href="#" class="pagination-number" data-page="${totalPages}">${totalPages}</a>`);
+            }
+        }
+
+        // 페이지 번호 클릭 이벤트
+        $('.pagination-number').off('click').on('click', function(e) {
+            e.preventDefault();
+            const page = $(this).data('page');
+            if (page) {
+                currentPage = page;
+                showCurrentPage();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+    }
+
+    function showCurrentPage() {
+        // 모든 필터링된 게시글 숨기기
+        filteredPosts.forEach(post => $(post).hide());
+
+        // 현재 페이지의 게시글만 표시
+        const start = (currentPage - 1) * postsPerPage;
+        const end = start + postsPerPage;
+        const postsToShow = filteredPosts.slice(start, end);
+        postsToShow.forEach(post => $(post).show());
+
+        // 페이지네이션 UI 업데이트
+        updatePagination();
+    }
+
+    function filterAndPaginate() {
+        currentPage = 1; // 카테고리 변경 시 첫 페이지로 리셋
+
+        if (window.location.hash) {
+            let hash = window.location.hash.substring(1);
+            $('#category-name').text(hash.substring(0, 1).toUpperCase() + hash.substring(1));
+            
+            // 카테고리에 맞는 게시글 필터링
+            filteredPosts = $('.post-list-item').filter(function() {
+                return $(this).hasClass('post-category-' + hash);
+            }).toArray();
+
+            // 모든 게시글 숨기기
+            $('.post-list-item').hide();
+        } else {
+            // hash가 없으면 전체 게시글
+            $('#category-name').text('All');
+            filteredPosts = $('.post-list-item').toArray();
+        }
+
+        // 현재 페이지 표시
+        showCurrentPage();
+    }
+
+    // 이전 버튼 클릭
+    $('#prev-btn').on('click', function() {
+        if (currentPage > 1) {
+            currentPage--;
+            showCurrentPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    });
+
+    // 다음 버튼 클릭
+    $('#next-btn').on('click', function() {
+        const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+        if (currentPage < totalPages) {
+            currentPage++;
+            showCurrentPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    });
+
+    // hash 변경 시
+    $(window).on('hashchange', function() {
+        filterAndPaginate();
+    });
+
+    // 페이지 로드 시
+    $(document).ready(function() {
+        filterAndPaginate();
+    });
 </script>
