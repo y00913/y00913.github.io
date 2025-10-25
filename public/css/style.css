@@ -354,6 +354,61 @@ footer {
 	vertical-align: middle;
 }
 
+/* 마크다운 테이블 스타일 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* 테이블 헤더 */
+table thead tr {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #333;
+}
+
+table th {
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* 테이블 바디 */
+table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+table tbody tr:last-child {
+  border-bottom: none;
+}
+
+table td {
+  padding: 12px 15px;
+  color: #333;
+}
+
+/* 호버 효과 (선택사항) */
+table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+  
+  table th,
+  table td {
+    padding: 10px 8px;
+  }
+}
+
+
 @media (max-width: 576px) {
 	article {
 		font-size: 0.9em;
