@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+{%- if paginator -%}
+  {%- assign posts = paginator.posts -%}
+  {%- assign has_pagination = true -%}
+  {%- assign current_page = paginator.page -%}
+  {%- assign total_pages = paginator.total_pages -%}
+  {%- assign previous_page = paginator.previous_page -%}
+  {%- assign previous_page_path = paginator.previous_page_path -%}
+  {%- assign next_page = paginator.next_page -%}
+  {%- assign next_page_path = paginator.next_page_path -%}
+{%- else -%}
+  {%- assign posts = site.posts -%}
+  {%- assign has_pagination = false -%}
+{%- endif -%}
+
+{% include home.html 
+   posts=posts 
+   has_pagination=has_pagination 
+   current_page=current_page 
+   total_pages=total_pages 
+   previous_page=previous_page 
+   previous_page_path=previous_page_path 
+   next_page=next_page 
+   next_page_path=next_page_path 
+%}

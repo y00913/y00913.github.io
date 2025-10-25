@@ -408,42 +408,65 @@ table tbody tr:hover {
   }
 }
 
-/* 페이지네이션 스타일 */
+/* 페이지네이션 컨테이너 */
 .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 8px;
   margin-top: 40px;
   padding: 20px 0;
   border-top: 1px solid #e5e7eb;
 }
 
-.pagination a,
-.pagination span {
+/* 이전/다음 버튼 */
+.pagination-btn {
   padding: 8px 16px;
   color: #333;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 6px;
   transition: all 0.2s ease;
+  font-weight: 500;
 }
 
-.pagination a:hover {
+.pagination-btn:hover:not(.disabled) {
   background-color: #f3f4f6;
   color: #1a1a1a;
 }
 
-.pagination .disabled {
+.pagination-btn.disabled {
   color: #9ca3af;
   cursor: not-allowed;
 }
 
-.pagination-info {
-  font-weight: 500;
-  color: #6b7280;
+/* 페이지 번호 컨테이너 */
+.pagination-numbers {
+  display: flex;
+  gap: 4px;
+  align-items: center;
 }
 
-.pagination .current {
+/* 페이지 번호 */
+.pagination-number {
+  min-width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.pagination-number:hover {
+  background-color: #f3f4f6;
+}
+
+/* 현재 페이지 */
+.pagination-number.current {
   background-color: #1a1a1a;
   color: white;
   font-weight: 600;
@@ -452,16 +475,21 @@ table tbody tr:hover {
 /* 모바일 반응형 */
 @media screen and (max-width: 768px) {
   .pagination {
-    gap: 10px;
+    gap: 4px;
     font-size: 14px;
   }
   
-  .pagination a,
-  .pagination span {
+  .pagination-btn {
     padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  .pagination-number {
+    min-width: 32px;
+    height: 32px;
+    font-size: 13px;
   }
 }
-
 
 @media (max-width: 576px) {
 	article {

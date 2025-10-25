@@ -19,33 +19,43 @@
     </ul>
 
     <!-- 페이지네이션 UI (숫자 버전) -->
-    {%- if paginator.total_pages > 1 -%}
+    {%- if include.has_pagination and include.total_pages > 1 -%}
     <div class="pagination">
-      {%- if paginator.previous_page -%}
-        <a href="{{ paginator.previous_page_path | relative_url }}">← 이전</a>
+      <!-- 이전 버튼 -->
+      {%- if include.previous_page -%}
+        <a href="{{ include.previous_page_path | relative_url }}" class="pagination-btn">
+          ← 이전
+        </a>
       {%- else -%}
-        <span class="disabled">← 이전</span>
+        <span class="pagination-btn disabled">← 이전</span>
       {%- endif -%}
 
-      {%- for page in (1..paginator.total_pages) -%}
-        {%- if page == paginator.page -%}
-          <span class="current">{{ page }}</span>
-        {%- elsif page == 1 -%}
-          <a href="{{ '/' | relative_url }}">{{ page }}</a>
-        {%- else -%}
-          <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
-        {%- endif -%}
-      {%- endfor -%}
+      <!-- 페이지 번호들 -->
+      <div class="pagination-numbers">
+        {%- for page in (1..include.total_pages) -%}
+          {%- if page == include.current_page -%}
+            <span class="pagination-number current">{{ page }}</span>
+          {%- elsif page == 1 -%}
+            <a href="{{ '/' | relative_url }}" class="pagination-number">{{ page }}</a>
+          {%- else -%}
+            <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="pagination-number">{{ page }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
 
-      {%- if paginator.next_page -%}
-        <a href="{{ paginator.next_page_path | relative_url }}">다음 →</a>
+      <!-- 다음 버튼 -->
+      {%- if include.next_page -%}
+        <a href="{{ include.next_page_path | relative_url }}" class="pagination-btn">
+          다음 →
+        </a>
       {%- else -%}
-        <span class="disabled">다음 →</span>
+        <span class="pagination-btn disabled">다음 →</span>
       {%- endif -%}
     </div>
     {%- endif -%}
-
     
+    {$- else -%}
+    <p>게시글이 없습니다.</p>
     {%- endif -%}
   </div>
 </article>
