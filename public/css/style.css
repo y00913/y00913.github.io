@@ -332,12 +332,22 @@ footer {
         border-top: 1px solid #ddd;
 }
 	
-.prev-post, .next-post {
+.prev-post {
         font-size: 1.1rem;
         text-decoration: none;
         color: #0073e6;
         transition: color 0.3s;
         max-width: 45%;
+	text-alighn: start;
+}
+
+.next-post {
+	font-size: 1.1rem;
+	text-decoration: none;
+	color: #0073e6;
+	transition: color 0.3s;
+	max-width: 45%;
+	text-align: end;
 }
 	
 .prev-post:hover, .next-post:hover {
