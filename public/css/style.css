@@ -10,13 +10,6 @@
 }
 
 @font-face {
-    font-family: 'HannaPro';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
-    font-weight: normal;
-    font-display: swap;
-}
-
-@font-face {
     font-family: 'HannaAir';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff') format('woff');
     font-weight: normal;
