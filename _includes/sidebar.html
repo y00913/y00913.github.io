@@ -34,12 +34,8 @@
 
 <div class="sidebar-item sidebar-nav">
 	<ul class="nav">
-	  <li class="nav-title">Categories
-		<button id="toggle-categories" aria-expanded="false" aria-controls="categories-list">
-		  ▼
-		</button>
-	  </li>
-	  <div id="categories-list" style="display:none;">
+	  <li class="nav-title">Categories</li>
+	  <div id="categories-list">
 		{% for category in site.categories %}
 		<li>
 		  <a class="nav-item" href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}">
@@ -49,6 +45,9 @@
 		</li>
 		{% endfor %}
 	  </div>
+	  <button id="toggle-categories" aria-expanded="false" aria-controls="categories-list">
+		▼
+	  </button>
 	</ul>
 </div>
   

@@ -546,11 +546,13 @@ table tbody tr:hover {
 	}
 
 	#toggle-categories {
+		display: inline-block;
 		background: none;
 		border: none;
 		font-size: 1em;
 		cursor: pointer;
 		padding-left: 10px;
+		color: #fff;
 	}
 
 	#categories-list {
