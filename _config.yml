@@ -39,7 +39,6 @@ paginate: 20
 paginate_path: "/page:num/"
 category_dir: category/
 tag_dir: tag/
-# disqus_shortname : myblog(y00913-github-io)
 google_analytics: G-X5JXGZWMR7
 
 # Exclude from processing.
