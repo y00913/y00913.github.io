@@ -39,6 +39,7 @@
 			▼
 		</button>
 	  </li>
+	  <span id="ellipsis"> ...</span>
 	  <div id="categories-list">
 		{% for category in site.categories %}
 		<li>
@@ -60,13 +61,16 @@
 <script>
 	document.getElementById('toggle-categories').addEventListener('click', function() {
 	  const list = document.getElementById('categories-list');
+	  const ellipsis = document.getElementById('ellipsis');
 	  const expanded = this.getAttribute('aria-expanded') === 'true';
 	  if (expanded) {
 		list.style.display = 'none';
+		ellipsis.style.display = 'inline';
 		this.setAttribute('aria-expanded', 'false');
 		this.textContent = '▼';
 	  } else {
 		list.style.display = 'block';
+		ellipsis.style.display = 'none';
 		this.setAttribute('aria-expanded', 'true');
 		this.textContent = '▲';
 	  }

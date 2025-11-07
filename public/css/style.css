@@ -508,6 +508,10 @@ table tbody tr:hover {
 	display: block; /* 기본은 펼쳐짐 */
 }
 
+#ellipsis {
+	display: none;
+}  
+
 @media (max-width: 576px) {
 	article {
 		font-size: 0.9em;
@@ -569,6 +573,10 @@ table tbody tr:hover {
 		vertical-align: middle;
 	}
 
+	#ellipsis {
+		display: block; 
+		font-weight: bold;
+	}
 }
 
 .utterances {
