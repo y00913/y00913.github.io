@@ -1,19 +1,12 @@
-@import url(//fonts.googleapis.com/css?family=Ubuntu:500&subset=latin,latin-ext);
+/* @import url(//fonts.googleapis.com/css?family=Ubuntu:500&subset=latin,latin-ext);
 @import url('https://fonts.googleapis.com/css?family=Gelasio|Kulim+Park|Nanum+Myeongjo|Nanum+Gothic|Noto+Sans|Noto+Sans+KR|Roboto&display=swap');
-@import url(syntax/monokai.css);
+@import url(syntax/monokai.css); */
 
 @font-face {
     font-family: 'BMJUA';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
-
-@font-face {
-    font-family: 'HannaAir';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff') format('woff');
-    font-weight: normal;
-    font-display: swap;
 }
 
 :root {
@@ -43,8 +36,8 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Roboto", "Nanum Gothic";
-  --font-family-serif: "Nanum Myeongjo";
+  --font-family-sans-serif: "BMJUA";
+  --font-family-serif: "BMJUA";
 }
 
 * {
@@ -87,7 +80,7 @@ pre {
 }
 
 code {
-	font-family: "Menlo", "Consolas", monospace;
+	font-family: "BMJUA";
 	font-size: 0.8em;
 	margin: 0px;
 }
@@ -107,7 +100,7 @@ code {
 
 .sidebar {
 	/*position: fixed;*/
-	font-family: "HannaAir";
+	font-family: "BMJUA";
 	display: flex;
 	flex-flow: column nowrap;
 	flex: 0 0 220px;
@@ -128,7 +121,7 @@ code {
 
 .sidebar-brand > a {
 	font-size: 300%;
-	font-family: "HannaAir";
+	font-family: "BMJUA";
 	color: #fff;
 }
 
@@ -155,7 +148,7 @@ code {
 
 a.nav-item {
 	font-size: 120%;
-	font-family: "HannaAir";
+	font-family: "BMJUA";
 	text-transform: capitalize;
 	color: #aaa;
 }
@@ -173,7 +166,7 @@ a.nav-item:hover { color: #777; }
 	margin-left: 10px;
 	font-size: 110%;
 	color: #333;
-	font-family: "HannaAir";
+	font-family: "BMJUA";
 	font-weight: bold;
 }
 
@@ -301,14 +294,14 @@ header.home {
 
 footer {
 	padding-top: 15px;
-	font-family: 'Ubuntu';
+	font-family: 'BMJUA';
 }
 
 .sidebar-footer {
 	margin-top: 80px;
 	font-size: 0.75em;
 	font-weight: lighter;
-	font-family: "Roboto";
+	font-family: "BMJUA";
 	line-height: 1.5;
 }
 
@@ -317,21 +310,21 @@ footer {
 }
 
 .post-navigation {
-        display: flex;
+    display: flex;
 	font-family: "BMJUA";
-        justify-content: space-between;
-        margin-top: 20px;
-        padding: 10px 0;
-        border-top: 1px solid #ddd;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
 }
 	
 .prev-post {
-        font-size: 1.1rem;
-        text-decoration: none;
-        color: #0073e6;
-        transition: color 0.3s;
-        max-width: 45%;
-	text-alighn: start;
+	font-size: 1.1rem;
+	text-decoration: none;
+	color: #0073e6;
+	transition: color 0.3s;
+	max-width: 45%;
+	text-align: start;
 }
 
 .next-post {
@@ -344,16 +337,16 @@ footer {
 }
 	
 .prev-post:hover, .next-post:hover {
-        color: #005bb5;
-    	text-decoration: none;
+	color: #005bb5;
+	text-decoration: none;
 }
 	
 .next-title {
-        display: inline-block;
-        max-width: 80%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+	display: inline-block;
+	max-width: 80%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	vertical-align: middle;
 }
 
@@ -520,7 +513,7 @@ table tbody tr:hover {
 	}
 
 	.sidebar {
-		font-family: "HannaAir";
+		font-family: "BMJUA";
 		font-size: 0.8em;
 		flex: 0 0 auto;
 		flex-flow: row nowrap;
@@ -546,12 +539,12 @@ table tbody tr:hover {
 	}
 
 	.next-title {
-        	display: inline-block;
-	        max-width: 150px;
-        	white-space: nowrap;
-	        overflow: hidden;
-	        text-overflow: ellipsis;
-        	vertical-align: middle;
+		display: inline-block;
+		max-width: 150px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		vertical-align: middle;
 	}
 
 }
