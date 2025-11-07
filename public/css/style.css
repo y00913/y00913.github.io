@@ -574,8 +574,8 @@ table tbody tr:hover {
 	}
 
 	#ellipsis {
-		display: block; 
-		font-weight: bold;
+		display: block;
+		color: #aaa;
 	}
 }
 
