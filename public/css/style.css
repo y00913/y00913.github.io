@@ -144,6 +144,8 @@ code {
 	text-transform: uppercase;
 	border-bottom: 1px solid gray;
 	margin-bottom: 5px;
+	width: 108px;
+	padding: 0;
 }
 
 a.nav-item {
@@ -551,8 +553,7 @@ table tbody tr:hover {
 		border: none;
 		font-size: 1em;
 		cursor: pointer;
-		padding-left: 10px;
-		color: #fff;
+		color: #aaa;
 	}
 
 	#categories-list {

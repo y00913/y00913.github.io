@@ -34,7 +34,11 @@
 
 <div class="sidebar-item sidebar-nav">
 	<ul class="nav">
-	  <li class="nav-title">Categories</li>
+	  <li class="nav-title">Categories
+		<button id="toggle-categories" aria-expanded="false" aria-controls="categories-list">
+			▼
+		</button>
+	  </li>
 	  <div id="categories-list">
 		{% for category in site.categories %}
 		<li>
@@ -45,9 +49,6 @@
 		</li>
 		{% endfor %}
 	  </div>
-	  <button id="toggle-categories" aria-expanded="false" aria-controls="categories-list">
-		▼
-	  </button>
 	</ul>
 </div>
   
