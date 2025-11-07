@@ -498,6 +498,14 @@ table tbody tr:hover {
   }
 }
 
+#toggle-categories {
+	display: none; /* 기본은 숨김 */
+}
+
+#categories-list {
+	display: block; /* 기본은 펼쳐짐 */
+}
+
 @media (max-width: 576px) {
 	article {
 		font-size: 0.9em;
@@ -535,6 +543,18 @@ table tbody tr:hover {
 		flex: 0 0 0px;
 		visibility: hidden;
 		display: none;
+	}
+
+	#toggle-categories {
+		background: none;
+		border: none;
+		font-size: 1em;
+		cursor: pointer;
+		padding-left: 10px;
+	}
+
+	#categories-list {
+		display: none; /* 모바일에선 기본 숨김 */
 	}
 
 	.next-title {

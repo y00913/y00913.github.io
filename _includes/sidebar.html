@@ -33,20 +33,43 @@
 </div>
 
 <div class="sidebar-item sidebar-nav">
-  	<ul class="nav">
-			<li class="nav-title">Categories</li>
-	    {% for category in site.categories %}
-	    <li>
-	    	<a class="nav-item" href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}">
-				<span class="name">{{ category | first }}</span>
-				<span class="badge">{{ category | last | size }}</span>
-	    	</a>
- 		</li>
-	    {% endfor %}
-	  </nav>
+	<ul class="nav">
+	  <li class="nav-title">Categories
+		<button id="toggle-categories" aria-expanded="false" aria-controls="categories-list">
+		  ▼
+		</button>
+	  </li>
+	  <div id="categories-list" style="display:none;">
+		{% for category in site.categories %}
+		<li>
+		  <a class="nav-item" href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}">
+			<span class="name">{{ category | first }}</span>
+			<span class="badge">{{ category | last | size }}</span>
+		  </a>
+		</li>
+		{% endfor %}
+	  </div>
 	</ul>
 </div>
+  
 
 <div class="sidebar-item sidebar-footer">
 	<p>Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a></p>
 </div>
+
+<script>
+	document.getElementById('toggle-categories').addEventListener('click', function() {
+	  const list = document.getElementById('categories-list');
+	  const expanded = this.getAttribute('aria-expanded') === 'true';
+	  if (expanded) {
+		list.style.display = 'none';
+		this.setAttribute('aria-expanded', 'false');
+		this.textContent = '▼';
+	  } else {
+		list.style.display = 'block';
+		this.setAttribute('aria-expanded', 'true');
+		this.textContent = '▲';
+	  }
+	});
+</script>
+  
