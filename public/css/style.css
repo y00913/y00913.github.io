@@ -551,7 +551,7 @@ table tbody tr:hover {
 		display: inline-block;
 		background: none;
 		border: none;
-		font-size: 1em;
+		font-size: 0.4em;
 		cursor: pointer;
 		color: #aaa;
 	}
