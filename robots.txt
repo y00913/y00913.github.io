@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://y00913.github.io/sitemap.xml
+#DaumWebMasterTool:451b1d83d99f1d9ed50d06c8aa8af7300dd0c2851d3a7d40c28ed4551293acea:VWEAzED1z6AQbl2iWDe4dw==
