@@ -237,6 +237,11 @@ p {
   margin-bottom: 0;
 }
 
+h1 {
+  margin-block: 0.67em;
+  font-size: 2em;
+}
+
 article h1,
 article h2,
 article h3,
@@ -246,7 +251,6 @@ article h6 {
 	font-family: "BMJUA";
 	color: #333;
 	font-weight: normal;
-  	/*margin-bottom: 0;*/
 }
 
 article.home h1 a,
