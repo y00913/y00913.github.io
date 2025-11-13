@@ -224,10 +224,16 @@ article .share .gplus:hover {
 }
 
 article {
-	padding: 0 4% 0 1%;
+	padding: 0 5% 0;
 	font-size: 17px;
 	margin-bottom: 100px;
 	line-height: 1.9;
+}
+
+@media screen and (min-width: 768px) {
+	.article {
+		padding: 0 4% 0 1%;
+	}
 }
 
 article.home div a, article.home pre a { color: #2c3e50; }
