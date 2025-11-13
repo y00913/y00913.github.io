@@ -95,8 +95,7 @@ code {
 .content {
 	flex: 1 1 auto;
 	padding: 0px 30px;
-  justify-content: center;
-  display: flex;
+  justify-items: center;
 }
 
 .post {
