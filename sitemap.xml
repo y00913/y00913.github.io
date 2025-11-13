@@ -7,13 +7,13 @@ is_sitemap: true
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-{% assign now = "now" | "%Y-%m-%dT%H:%M:%S+09:00" %}
+{% assign now = "now" | date: "%Y-%m-%dT%H:%M:%S+09:00" %}
 {% for post in site.posts %}
   <url>
     <loc>{{ site.url }}{{ post.url }}</loc>
     <lastmod>
       {% if post.date %}
-        {{ post.date | "%Y-%m-%dT%H:%M:%S+09:00" }}
+        {{ post.date | date: "%Y-%m-%dT%H:%M:%S+09:00" }}
       {% else %}
         {{ now }}
       {% endif %}
