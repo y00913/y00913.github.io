@@ -97,9 +97,11 @@ code {
     justify-items: center;
 }
 
-.post {
-  max-width: 1200px;
-  width: 55%;
+@media screen and (min-width: 768px) {
+	.post {
+		max-width: 1200px;
+		width: 55%;
+	}
 }
 
 .sidebar {
