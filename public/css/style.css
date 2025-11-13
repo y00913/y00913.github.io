@@ -107,7 +107,7 @@ code {
 	font-family: "BMJUA";
 	display: flex;
 	flex-flow: column nowrap;
-	flex: 0 0 180px;
+	flex: 0 0 170px;
 	padding: 15px;
 	z-index: 1;
 	background-color: #222;
