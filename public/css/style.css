@@ -99,12 +99,7 @@ code {
 
 .post {
   max-width: 1080px;
-}
-
-@media screen and (min-width: 768px) {
-  .post {
-    min-width: 1080px;
-  }
+  width: 50%;
 }
 
 .sidebar {
