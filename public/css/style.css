@@ -602,3 +602,37 @@ table tbody tr:hover {
 .utterances {
 	max-width: 100% !important;
 }
+
+.recent-posts .cards {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.recent-posts .card {
+	border: 1px solid #ddd;
+	padding: 10px;
+	width: calc(20% - 10px);
+	box-sizing: border-box;
+	background-color: #f9f9f9;
+	border-radius: 4px;
+	transition: box-shadow 0.3s ease;
+}
+
+.recent-posts .card:hover {
+	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.recent-posts .card h4 {
+	margin-top: 0;
+	font-size: 1.1em;
+}
+
+.recent-posts .card p {
+	font-size: 0.9em;
+	color: #555;
+}
+
+.recent-posts .card small {
+	color: #999;
+}
