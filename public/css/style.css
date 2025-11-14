@@ -98,13 +98,12 @@ code {
 }
 
 .post {
-	max-width: 1200px;
+	max-width: 1000px;
 }
 
 @media screen and (min-width: 768px) {
 	.post {
-		max-width: 1200px;
-		width: 55%;
+		width: 1000px;
 	}
 }
 
