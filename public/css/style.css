@@ -614,6 +614,7 @@ table tbody tr:hover {
 }
 
 .recent-posts .card h4 {
+	text-decoration: none;
 	margin-top: 0;
 	font-size: 0.9em;
 	color: #333;
@@ -623,12 +624,13 @@ table tbody tr:hover {
 	text-decoration: none;
 }
 
-.recent-posts .card small:hover {
+.recent-posts .card small {
+	color: #999;
 	text-decoration: none;
 }
 
-.recent-posts .card small {
-	color: #999;
+.recent-posts .card small:hover {
+	text-decoration: none;
 }
 
 @media (max-width: 768px) {
