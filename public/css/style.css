@@ -599,7 +599,7 @@ table tbody tr:hover {
 }
 
 .recent-posts .card {
-	border: 1px solid #ddd;
+	border: 1px solid #888;
 	padding: 10px;
 	width: calc(20% - 10px);
 	box-sizing: border-box;
@@ -609,12 +609,14 @@ table tbody tr:hover {
 }
 
 .recent-posts .card:hover {
+	text-decoration: none;
 	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+	background-color: #ebebeb;
 }
 
 .recent-posts .card h4 {
 	margin-top: 0;
-	font-size: 0.8em;
+	font-size: 0.9em;
 	color: #333;
 }
 
