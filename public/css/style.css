@@ -124,8 +124,13 @@ code {
 }
 
 .sidebar-brand > a {
-	font-size: 300%;
+	text-decoration: none;
+	font-size: 280%;
 	color: #fff;
+}
+
+.sidebar-brand > a:hover {
+	text-decoration: none;
 }
 
 .lead {
@@ -148,6 +153,10 @@ code {
 	margin-bottom: 5px;
 	width: 108px;
 	padding: 0;
+}
+
+.nav-list {
+	margin-top: 5px;
 }
 
 a.nav-item {
