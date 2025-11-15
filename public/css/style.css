@@ -177,6 +177,7 @@ a.nav-item:hover { color: #777; }
 .badge::after { content: ")"; }
 
 .post-list > li {
+	padding-bottom: 10px;
 }
 
 .post-link {
@@ -554,7 +555,6 @@ table tbody tr:hover {
 	}
 
 	.sidebar {
-		width: 112px;
 		font-size: 0.8em;
 		flex: 0 0 auto;
 		flex-flow: row nowrap;
