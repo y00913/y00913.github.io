@@ -191,10 +191,10 @@ a.nav-item:hover { color: #777; }
 #contact-list li .fa,
 article .share .btn {
 	-o-transition:color .2s ease-out, background 1s ease-in;
-  -ms-transition:color .2s ease-out, background 1s ease-in;
-  -moz-transition:color .2s ease-out, background 1s ease-in;
-  -webkit-transition:color .2s ease-out, background 1s ease-in;
-  transition:color .2s ease-out, background 1s ease-in;
+	-ms-transition:color .2s ease-out, background 1s ease-in;
+	-moz-transition:color .2s ease-out, background 1s ease-in;
+	-webkit-transition:color .2s ease-out, background 1s ease-in;
+	transition:color .2s ease-out, background 1s ease-in;
 }
 #contact-list li:hover .fa-twitter, article .share .twitter:hover {
 	color: #00ACEE;
@@ -331,12 +331,14 @@ header.home {
 }
 
 .author .author-image {
-  float: left;
-  margin-right: 20px;
+	float: left;
+	margin-right: 20px;
 }
 
 footer {
 	padding-top: 15px;
+	margin-top: 100px;
+	border-top: 1px solid #aaa;
 }
 
 .sidebar-footer {
@@ -353,9 +355,7 @@ footer {
 .post-navigation {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
-    padding: 30px 0;
-    border-top: 1px solid #ddd;
+    padding: 0 0 30px 0;
 }
 	
 .prev-post {
@@ -680,8 +680,10 @@ table tbody tr:hover {
 }
 
 .back-to-category {
-	font-size: 12px;
+	font-size: 15px;
 	color: #666;
+	text-align: left;
+	margin-bottom: 20px;
 }
 
 .back-to-category a {
