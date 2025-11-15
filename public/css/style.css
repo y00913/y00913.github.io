@@ -176,8 +176,10 @@ a.nav-item:hover { color: #777; }
 .badge::before { content: "("; }
 .badge::after { content: ")"; }
 
-.post-list > li {
-	padding-bottom: 10px;
+@media (max-width: 576px) {
+	.post-list > li {
+		padding-bottom: 10px;
+	}
 }
 
 .post-link {
@@ -247,9 +249,17 @@ article img {
 	width: 400px;
 }
 
+/* PC */
 @media screen and (min-width: 768px) {
 	article img { 
 		margin: 30px;
+	}
+}
+
+/* MOBILE */
+@media screen and (max-width: 768px) {
+	article img { 
+		width: 90vw;
 	}
 }
 
@@ -559,6 +569,7 @@ table tbody tr:hover {
 		flex: 0 0 auto;
 		flex-flow: row nowrap;
 		height: auto;
+		width: 100vw;
 	}
 
 	.sidebar-nav {
