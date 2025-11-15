@@ -155,6 +155,12 @@ code {
 	padding: 0;
 }
 
+@media screen and (max-width: 768px) {
+	.nav-title {
+		width: 112px;
+	}
+}
+
 .nav-list {
 	margin-top: 5px;
 }
@@ -236,7 +242,15 @@ article {
 
 article.home div a, article.home pre a { color: #2c3e50; }
 article.home div a:hover, article.home pre a:hover { color: #2c3e50; text-decoration: none; }
-article img { max-width: 100%; }
+article img { 
+	width: 400px;
+}
+
+@media screen and (min-width: 768px) {
+	article img { 
+		margin: 30px;
+	}
+}
 
 blockquote {
 	color: #828282;
@@ -540,6 +554,7 @@ table tbody tr:hover {
 	}
 
 	.sidebar {
+		width: 112px;
 		font-size: 0.8em;
 		flex: 0 0 auto;
 		flex-flow: row nowrap;
