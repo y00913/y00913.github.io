@@ -626,11 +626,7 @@ table tbody tr:hover {
 .recent-posts .card h4 {
 	margin-top: 0;
 	font-size: 1.1em;
-}
-
-.recent-posts .card p {
-	font-size: 0.9em;
-	color: #555;
+	color: #333;
 }
 
 .recent-posts .card small {
