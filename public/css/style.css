@@ -3,10 +3,24 @@
 @import url(syntax/monokai.css); */
 
 @font-face {
-    font-family: 'BMJUA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
 }
 
 :root {
@@ -36,8 +50,8 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "BMJUA";
-  --font-family-serif: "BMJUA";
+  --font-family-sans-serif: "GMarketSans";
+  --font-family-serif: "GMarketSans";
 }
 
 * {
@@ -56,7 +70,6 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: 'BMJUA';
 	color: #2c3e50;
 }
 
@@ -80,7 +93,6 @@ pre {
 }
 
 code {
-	font-family: "BMJUA";
 	font-size: 0.8em;
 	margin: 0px;
 }
@@ -109,7 +121,6 @@ code {
 
 .sidebar {
 	/*position: fixed;*/
-	font-family: "BMJUA";
 	display: flex;
 	flex-flow: column nowrap;
 	flex: 0 0 170px;
@@ -130,7 +141,6 @@ code {
 
 .sidebar-brand > a {
 	font-size: 300%;
-	font-family: "BMJUA";
 	color: #fff;
 }
 
@@ -149,7 +159,6 @@ code {
 
 .nav-title {
 	font-size: 100%;
-	font-family: "BMJUA";
 	text-transform: uppercase;
 	border-bottom: 1px solid gray;
 	margin-bottom: 5px;
@@ -159,7 +168,6 @@ code {
 
 a.nav-item {
 	font-size: 120%;
-	font-family: "BMJUA";
 	text-transform: capitalize;
 	color: #aaa;
 }
@@ -177,7 +185,6 @@ a.nav-item:hover { color: #777; }
 	margin-left: 10px;
 	font-size: 110%;
 	color: #333;
-	font-family: "BMJUA";
 }
 
 #contact-list li .fa,
@@ -224,7 +231,7 @@ article .share .gplus:hover {
 
 article {
 	padding: 0 5% 0;
-	font-size: 17px;
+	font-size: 19px;
 	margin-bottom: 100px;
 	line-height: 2.3;
 }
@@ -263,7 +270,6 @@ article h3,
 article h4,
 article h5,
 article h6 {
-	font-family: "BMJUA";
 	color: #333;
 	font-weight: normal;
 }
@@ -314,14 +320,12 @@ header.home {
 
 footer {
 	padding-top: 15px;
-	font-family: 'BMJUA';
 }
 
 .sidebar-footer {
 	margin-top: 80px;
 	font-size: 0.75em;
 	font-weight: lighter;
-	font-family: "BMJUA";
 	line-height: 1.5;
 }
 
@@ -331,7 +335,6 @@ footer {
 
 .post-navigation {
     display: flex;
-	font-family: "BMJUA";
     justify-content: space-between;
     margin-top: 20px;
     padding: 30px 0;
@@ -545,7 +548,6 @@ table tbody tr:hover {
 	}
 
 	.sidebar {
-		font-family: "BMJUA";
 		font-size: 0.8em;
 		flex: 0 0 auto;
 		flex-flow: row nowrap;
