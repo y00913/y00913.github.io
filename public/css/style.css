@@ -226,7 +226,7 @@ article {
 	padding: 0 5% 0;
 	font-size: 17px;
 	margin-bottom: 100px;
-	line-height: 1.9;
+	line-height: 2.3;
 }
 
 @media screen and (min-width: 768px) {
@@ -533,8 +533,8 @@ table tbody tr:hover {
 
 @media (max-width: 576px) {
 	article {
-		font-size: 0.9em;
-		line-height: 1.5;
+		font-size: 1.0em;
+		line-height: 1.8;
 	}
 
 	.content {
@@ -602,6 +602,9 @@ table tbody tr:hover {
 .utterances {
 	max-width: 100% !important;
 }
+.recent-posts {
+	margin-bottom: 100px;
+}
 
 .recent-posts .cards {
 	display: flex;
@@ -631,4 +634,14 @@ table tbody tr:hover {
 
 .recent-posts .card small {
 	color: #999;
+}
+
+@media (max-width: 768px) {
+    .recent-posts .cards {
+        flex-direction: column;
+    }
+
+    .recent-posts .card {
+        width: 100%;
+    }
 }
